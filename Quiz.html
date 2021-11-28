@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>IQ Test</title>
+
+        <script>
+            //Running Javascript after DOM is loaded
+            document.addEventListener('DOMContentLoaded', function(){
+                
+                //Executing form
+                document.querySelector('#done').addEventListener('click', function () {
+                    //After submit checking the resoponse is correct or not
+                    let counter = 0;
+                    let answer1 = document.querySelector('#response1')
+                    if (answer1.value =='MATCH'){
+                        answer1.style.backgroundColor = 'green';
+                        document.querySelector('#feedback1').innerHTML = 'Correct!';
+                        counter+=1;
+                    }
+                    else{
+                        answer1.style.backgroundColor = 'red';
+                        document.querySelector('#feedback1').innerHTML = 'Correct Answer: MATCH';
+                    }
+
+                    let answer2 = document.querySelector('#response2')
+                    if (answer2.value =='FATHER' || answer2.value =='DAD'){
+                        answer2.style.backgroundColor = 'green';
+                        document.querySelector('#feedback2').innerHTML = 'Correct!';
+                        counter+=1;
+                    }
+                    else{
+                        answer2.style.backgroundColor = 'red';
+                        document.querySelector('#feedback2').innerHTML = 'Correct Answer: FATHER';
+                    }
+
+
+                    let answer3 = document.querySelector('#response3')
+                    if (answer3.value =='BOB' ){
+                        answer3.style.backgroundColor = 'green';
+                        document.querySelector('#feedback3').innerHTML = 'Correct!';
+                        counter+=1;
+                    }
+                    else{
+                        answer3.style.backgroundColor = 'red';
+                        document.querySelector('#feedback3').innerHTML = 'Correct Answer: BOB';
+                    }
+
+
+                    let answer4 = document.querySelector('#response4')
+                    if (answer4.value =='12' ){
+                        answer4.style.backgroundColor = 'green';
+                        document.querySelector('#feedback4').innerHTML = 'Correct!';
+                        counter+=1;
+                    }
+                    else{
+                        answer4.style.backgroundColor = 'red';
+                        document.querySelector('#feedback4').innerHTML = 'Correct Answer: 12';
+                    }
+
+                    let answer5 = document.querySelector('#response5')
+                    if (answer5.value =='2' ){
+                        answer5.style.backgroundColor = 'green';
+                        document.querySelector('#feedback5').innerHTML = 'Correct!';
+                        counter+=1;
+                    }
+                    else{
+                        answer5.style.backgroundColor = 'red';
+                        document.querySelector('#feedback5').innerHTML = 'Correct Answer: 2';
+                    }
+
+                    counter*=20;
+                    if (counter >= 40 ){
+                        document.querySelector('#feedback6').innerHTML = 'Well Done !';
+                        document.querySelector('#feedback7').innerHTML = 'Your Score Is: '+ counter +' Out of 100';
+                    }
+                    else{
+                        document.querySelector('#feedback6').innerHTML = 'Work Hard!';
+                        document.querySelector('#feedback7').innerHTML = 'Your Score Is: '+ counter +' Out of 100';
+                    }
+                });
+            });
+
+        </script>
+    </head>
+
+    <body class= "back2">
+        <div class= "footer"></div>
+        
+        <div class="head2">
+            <h1>Test Your IQ</h1>
+            <nav class="posit">
+                <a class="navbar-brand" href="index.html">
+                <img src="home.png" width="30" height="30" alt="" loading="lazy">
+                Home
+                </a>
+            </nav>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Fill in your response</h2>
+                <hr>
+                <h3>1. You are in a dark room with a candle, a wood stove, and a gas lamp. If you only have one match, what do you light first?</h3>
+                <input id ="response1" autocomplete = "off" placeholder= "Answer in Caps" type ="text">
+                <p id = "feedback1"></p>
+
+                <hr>
+                <h3>2. Your mother’s brother’s only brother-in-law is asleep on your couch. Who is asleep on your couch?</h3>
+                <input id ="response2" autocomplete = "off" placeholder= "Answer in Caps" type ="text">
+                <p id = "feedback2"></p>
+
+                <hr>
+                <h3>3. Bob’s father has four sons. Mom, Meme, and Mumu is three of them. Who’s the fourth?</h3>
+                <input id ="response3" autocomplete = "off" placeholder= "Answer in Caps" type ="text">
+                <p id = "feedback3"></p>
+
+                <hr>
+                <h3>4. Some months have 31 days. Some have 30. How many have 28 in a year?</h3>
+                <input id ="response4" autocomplete = "off" placeholder= "Answer in numeric" type ="text">
+                <p id = "feedback4"></p>
+
+                <hr>
+                <h3>5. I have three apples. If you take away two from me, how many do you have?</h3>
+                <input id ="response5" placeholder= "Answer in numeric" autocomplete = "off" type ="text">
+                <p id = "feedback5"></p>
+                <hr>
+                <hr>
+
+                <div class="container">
+                    <div class="section">
+                        <h4>After Finishing Click on Submit! ---->  
+                        <button id = "done" type="button" class="btn btn-success">SUBMIT!</button>
+                        </h4>
+                        <h2>Your Scorecard:</h2>
+                        <p id = "feedback6" class = "toogle">Will appear on clicking submit!</p>
+                        <p id = "feedback7" class = "toogle">
+                </div>
+            
+            </div>
+        </div>
+        <div>
+            <h2>Thanks For Visiting</h2>
+        </div>
+        <div class = "footer"></div>
+        
+    </body>
+</html>
